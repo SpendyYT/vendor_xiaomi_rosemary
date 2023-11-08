@@ -8,6 +8,7 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/rosemary/proprietary/bin/kpoc_charger:$(TARGET_COPY_OUT_SYSTEM)/bin/kpoc_charger \
     vendor/xiaomi/rosemary/proprietary/bin/vtservice:$(TARGET_COPY_OUT_SYSTEM)/bin/vtservice \
+    vendor/xiaomi/rosemary/proprietary/boot/ramdisk/system/etc/init/kpoc_charger.rc:$(TARGET_COPY_OUT_SYSTEM)/boot/ramdisk/system/etc/init/kpoc_charger.rc \
     vendor/xiaomi/rosemary/proprietary/etc/init/init.vtservice.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.vtservice.rc \
     vendor/xiaomi/rosemary/proprietary/etc/init/kpoc_charger.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/kpoc_charger.rc \
     vendor/xiaomi/rosemary/proprietary/etc/nfcee_access.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/nfcee_access.xml \
@@ -35,6 +36,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/consumerird:$(TARGET_COPY_OUT_VENDOR)/bin/consumerird \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/hw/android.hardware.nfc@1.2-service-st:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.nfc@1.2-service-st \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/hw/android.hardware.thermal@2.0-service.mtk:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.thermal@2.0-service.mtk \
+    vendor/xiaomi/rosemary/proprietary/vendor/bin/hw/vendor.microtrust.hardware.soter@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.microtrust.hardware.soter@1.0-service \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/mi_thermald:$(TARGET_COPY_OUT_VENDOR)/bin/mi_thermald \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/nfcstackp-vendor:$(TARGET_COPY_OUT_VENDOR)/bin/nfcstackp-vendor \
     vendor/xiaomi/rosemary/proprietary/vendor/bin/thermal:$(TARGET_COPY_OUT_VENDOR)/bin/thermal \
@@ -72,6 +74,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/init/init.thermal_manager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.thermal_manager.rc \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/init/init.thermalloadalgod.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.thermalloadalgod.rc \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/init/microtrust.bp_kmsetkey_ca.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/microtrust.bp_kmsetkey_ca.rc \
+    vendor/xiaomi/rosemary/proprietary/vendor/etc/init/vendor.microtrust.hardware.soter@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.microtrust.hardware.soter@1.0-service.rc \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/ipsec/ipsec.conf:$(TARGET_COPY_OUT_VENDOR)/etc/ipsec/ipsec.conf \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/ipsec/ipsec.d/cacerts/DigiCertGlobalRootCA.crt:$(TARGET_COPY_OUT_VENDOR)/etc/ipsec/ipsec.d/cacerts/DigiCertGlobalRootCA.crt \
     vendor/xiaomi/rosemary/proprietary/vendor/etc/ipsec/ipsec.d/cacerts/DigiCertGlobalRootG2.crt:$(TARGET_COPY_OUT_VENDOR)/etc/ipsec/ipsec.d/cacerts/DigiCertGlobalRootG2.crt \
@@ -500,13 +503,13 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/libhevce_sb.ca7.android.so:$(TARGET_COPY_OUT_VENDOR)/lib/libhevce_sb.ca7.android.so \
-    vendor/xiaomi/rosemary/proprietary/vendor/lib/libnir_neon_driver.so:$(TARGET_COPY_OUT_VENDOR)/lib/libnir_neon_driver.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/libteeclientjni.so:$(TARGET_COPY_OUT_VENDOR)/lib/libteeclientjni.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/libteeclientjni@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib/libteeclientjni@1.1.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/libthermalalgo.so:$(TARGET_COPY_OUT_VENDOR)/lib/libthermalalgo.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/liburee_meta_drmkeyinstall.so:$(TARGET_COPY_OUT_VENDOR)/lib/liburee_meta_drmkeyinstall.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/nfc_nci.st21nfc.st.so:$(TARGET_COPY_OUT_VENDOR)/lib/nfc_nci.st21nfc.st.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib/vendor.mediatek.hardware.videotelephony@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.mediatek.hardware.videotelephony@1.0.so \
+    vendor/xiaomi/rosemary/proprietary/vendor/lib64//vendor.microtrust.hardware.soter@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64//vendor.microtrust.hardware.soter@1.0.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib64/hw/android.hardware.thermal@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.thermal@2.0-impl.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib64/hw/consumerir.mt6785.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/consumerir.mt6785.so \
     vendor/xiaomi/rosemary/proprietary/vendor/lib64/hw/gatekeeper.beanpod.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/gatekeeper.beanpod.so \
@@ -578,6 +581,8 @@ PRODUCT_PACKAGES += \
     gc02m1sunny_mipi_raw_india_IdxMgr \
     gc02m1sunny_mipi_raw_india_tuning \
     gc02m1sunny_mipi_raw_tuning \
+    android.hardware.audio@6.0-impl-mediatek \
+    android.hardware.audio@7.0-impl-mediatek \
     android.hardware.bluetooth@1.1-impl-mediatek \
     android.hardware.graphics.allocator@4.0-impl-mediatek \
     android.hardware.graphics.mapper@4.0-impl-mediatek \
@@ -1119,6 +1124,7 @@ PRODUCT_PACKAGES += \
     libaudiocompensationfilter_vendor \
     libaudioprimarydevicehalifclient \
     libaurisysdemo \
+    libavservices_minijail_vendor \
     libawinicsmartpaparse \
     libbessound_hd_mtk_vendor \
     libblisrc32_vendor \
@@ -1293,6 +1299,7 @@ PRODUCT_PACKAGES += \
     libvcodec_oal \
     libvcodecdrv_header_stub \
     libverno \
+    libviagpsrpc \
     libvow_ap_test_aa \
     libvow_ap_test_dd \
     libvow_ap_test_ha \
@@ -1304,7 +1311,10 @@ PRODUCT_PACKAGES += \
     libwvkeyboxext \
     libmockdrmcryptoplugin \
     libwvdrmengine \
+    libdpframework \
     libmtk_drvb \
+    libnir_neon_driver \
+    libpq_prot \
     ov02b1bofilm_mipi_raw_IdxMgr \
     ov02b1bofilm_mipi_raw_india_IdxMgr \
     ov02b1bofilm_mipi_raw_india_tuning \
@@ -1386,7 +1396,6 @@ PRODUCT_PACKAGES += \
     libh264enc_sa.ca7 \
     libmp4enc_sa.ca7 \
     libmp4enc_xa.ca7 \
-    libpowerhalwrap_vendor \
     librcs_interface \
     librcs_volte_core \
     libvc1dec_sa.ca7 \
@@ -1400,9 +1409,6 @@ PRODUCT_PACKAGES += \
     libvpud_vcodec \
     libvt_custom \
     meta_wifi_data \
-    libdpframework \
-    libnir_neon_driver \
-    libpq_prot \
     vendor.mediatek.hardware.audio@7.1 \
     vendor.mediatek.hardware.rcs@2.0 \
     APUWareUtilsServer \
@@ -1538,8 +1544,6 @@ PRODUCT_PACKAGES += \
     libmtkutils \
     libneuron_adapter \
     libneuron_platform \
-    libneuron_runtime.5 \
-    libneuron_runtime \
     libnotifyaudiohal \
     libnxp_extamp_intf \
     libpqparamparser \
@@ -1555,7 +1559,6 @@ PRODUCT_PACKAGES += \
     libtrm \
     libvendor.goodix.hardware.biometrics.fingerprint@2.1 \
     libvia-ril \
-    libviagpsrpc \
     libviamipc-ril \
     libvideofilter_only \
     libvidhance \
@@ -1569,6 +1572,9 @@ PRODUCT_PACKAGES += \
     libwpfa \
     libwvhidl \
     libxmi_high_dynamic_range \
+    libmcv_runtime.mtk \
+    libneuron_runtime.5 \
+    libneuron_runtime \
     libmtkcam_streaminfo_plugin-p1stt \
     vendor.mediatek.hardware.apuware.utils@2.0 \
     vendor.mediatek.hardware.camera.frhandler@1.0 \
@@ -1590,6 +1596,7 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mmagent@1.1 \
     vendor.mediatek.hardware.mtkradioex@2.0 \
     vendor.mediatek.hardware.mtkradioex@3.0 \
+    wechat.beanpod \
     ImsService \
     HotwordEnrollmentOKGoogleCORTEXM4 \
     HotwordEnrollmentXGoogleCORTEXM4 \
@@ -1874,6 +1881,7 @@ PRODUCT_PACKAGES += \
     wfd_source_capability \
     AgentTest \
     STFlashTool \
+    SoterProvisioningTool \
     aee_dumpstatev \
     aeev \
     applypatch \
